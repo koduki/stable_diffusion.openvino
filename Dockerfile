@@ -10,11 +10,8 @@ COPY requirements.txt /src/
 
 RUN pip3 install -r requirements.txt
 
-COPY stable_diffusion_engine.py app.py demo.py demo_web.py /src/
+COPY stable_diffusion_engine.py demo.py /src/
 COPY data/ /src/data/
 
 # download models
 RUN python3 demo.py --num-inference-steps 1 --prompt "test" --output /tmp/test.jpg
-ENV PORT 8080
-EXPOSE 8080
-ENTRYPOINT ["python3", "app.py"]

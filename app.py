@@ -48,4 +48,8 @@ def sample_image():
     response.set_header('Content-Length', str(len(content)))
     return content
 
-run(host='localhost', port=os.environ['PORT'])
+@route('/')
+def hello():
+    return hello
+
+run(host='0.0.0.0', port=os.environ['PORT'])
