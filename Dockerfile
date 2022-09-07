@@ -15,5 +15,6 @@ COPY data/ /src/data/
 
 # download models
 RUN python3 demo.py --num-inference-steps 1 --prompt "test" --output /tmp/test.jpg
-
+ENV PORT 8080
+EXPOSE 8080
 ENTRYPOINT ["python3", "app.py"]
